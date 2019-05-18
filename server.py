@@ -29,9 +29,9 @@ def getFact():
     intent = req.get("queryResult").get("intent").get("displayName")
     number = req.get("queryResult").get("parameters").get("number")
     qtype = req.get("queryResult").get("parameters").get("type")
-    if intent == "numbers":
+    if intent == "Trivia_Numbers":
         if qtype == "random":
-            qtype = random.choice(["trivia","year","math"])
+            qtype = random.choice(["math","trivia","year"])
         qurl = url + str(int(number)) + "/" + qtype + "?json"
         res = requests.get(qurl).json()["text"]
         print(res)
